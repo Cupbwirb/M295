@@ -1,0 +1,97 @@
+openapi: 3.0.0
+info:
+  title: Tierheim Api
+  description: For Tierheim management of the animals
+  version: 1.0.0
+paths:
+  /tiere:
+    get:
+      description: Returns all animals in the Tierheim
+      responses:
+        '200':
+          description: Successfully returned a list of animals
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Tier'
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Tier'
+      responses:
+        '200':
+          description: Successfully added a new animal
+        '400':
+          description: Failed to add a new animal
+  /tiere/{tierId}:
+    put:
+      description: Updates an animal.
+      parameters:
+        - name: tierId
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Tier'
+      responses:
+        '200':
+          description: Successfully updated an animal
+        '400':
+          description: Failed to update an animal
+    get:
+      description: Returns an animal by tierId
+      parameters:
+        - name: tierId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully returned an animal by tierId
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tier'
+    delete:
+      description: Deletes an animal from the list
+      parameters:
+        - name: tierId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully deleted an animal
+        '400':
+          description: Failed to delete an animal
+      security:
+        - basicAuth: [ ]
+components:
+  schemas:
+    Tier:
+      type: object
+      required:
+        - tierId
+      properties:
+        tierId:
+          type: integer
+        tierName:
+          type: string
+        tierAlter:
+          type: integer
+        artId:
+          type: integer
+
+  
