@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,6 +22,32 @@ public class TierDao {
         this.jdbc = jdbc;
     }
 
+    //From Tier
+    public Tier getTierById(int tierId) {
+        Tier ut = get(tierId).orElseThrow();
+        return ut;
+    }
+    public int deleteTier(int tierId) {
+        return delete(tierId);
+    }
+    public int updateTier(int tierId, Tier tier) {
+        tier.setTierId(tierId);
+        return update(tier);
+    }
+    public List<Tier> getAllTiere() {
+        List<Tier> tiere = getAll();
+        List<Tier> tierr = new ArrayList<>();
+        tiere.forEach(tiers -> {
+            Tier t = tiers;
+            tierr.add(t);
+        });
+        return tierr;
+    }
+    public void insertTier(Tier tier) {
+        insert(tier);
+    }
+
+    //SQL
     public Optional<Tier> get(int tierId) {
         String sql = "SELECT * FROM Tier WHERE tierId = :tierId";
         List<Tier> tierList = jdbc.query(sql, new MapSqlParameterSource()
