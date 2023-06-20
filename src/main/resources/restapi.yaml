@@ -4,6 +4,18 @@ info:
   description: For Tierheim management of the animals
   version: 1.0.0
 paths:
+  /art:
+    get:
+      description: Shows all species in the Tierheim
+      responses:
+        '200':
+          description: Sucessfully returned a list of species
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Art'
   /tiere:
     get:
       description: Returns all animals in the Tierheim
@@ -93,5 +105,15 @@ components:
           type: integer
         artId:
           type: integer
+    Art:
+      type: object
+      required:
+        - artId
+      properties:
+        artId:
+          type: integer
+        arten:
+          type: string
+
 
   

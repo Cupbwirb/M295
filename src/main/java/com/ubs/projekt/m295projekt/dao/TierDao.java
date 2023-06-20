@@ -1,9 +1,7 @@
 package com.ubs.projekt.m295projekt.dao;
 
+import ch.ubs.m295.generated.v1.dto.Art;
 import ch.ubs.m295.generated.v1.dto.Tier;
-//import com.ubs.projekt.m295projekt.dto.TierDB;
-//import com.ubs.projekt.m295projekt.optional.TierOptional;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
@@ -14,8 +12,6 @@ import java.util.List;
 import java.util.Optional;
 
 public class TierDao {
-    /*@Autowired
-    private TierOptional tierOptional;*/
     private final NamedParameterJdbcTemplate jdbc;
 
     public TierDao(NamedParameterJdbcTemplate jdbc) {
@@ -100,6 +96,17 @@ public class TierDao {
                     .tierAlter(rs.getInt("tierAlter"))
                     .artId(rs.getInt("artId"));
             return tier;
+        });
+    }
+
+    public List<Art> getAllArt() {
+        String sql = "SELECT * FROM tierarten";
+        SqlParameterSource namedParameters = new MapSqlParameterSource();
+        return jdbc.query(sql, namedParameters, (rs, rowNum) -> {
+            Art art = new Art();
+            art.artId(rs.getInt("artId"))
+                    .arten(rs.getString("arten"));
+            return art;
         });
     }
 }

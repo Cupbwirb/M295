@@ -7,10 +7,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
-import javax.sql.DataSource;
-
 @Configuration
 public class Config {
+    @Bean
+    public Logger getLogger(){
+        return LoggerFactory.getLogger(Config.class);
+    }
 
     @Bean
     public TierDao tierDao(NamedParameterJdbcTemplate namedParameterJdbcTemplate){
