@@ -6,9 +6,9 @@ It is about managing all the animals in an animal shelter.
 ## MySql Database
 
 There are 2 Tables. One is the 'Tierart' table which
-already has all the types added to this table and the
+already has all the types of animals added to the table and the
 other Table is the 'Tier' table which you can add new
-animals or delete animals when they are no longer in
+animals, update existing animals or delete animals when they are no longer in
 the animals shelter.
 
 ```sql
@@ -56,9 +56,8 @@ It can be reached by `http://localhost:8080`
 `POST`
 - Adds a new animal.
 - In Postman in "Body" set "raw" in "JSON" to add a new animal.
-- Example (keep in mind: tierId is auto_increment): 
+- Example (tierId is auto_increment): 
 {
-   "tierId":6,
    "tierName":"Litchi",
    "tierAlter":5,
    "artId":1

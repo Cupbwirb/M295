@@ -20,8 +20,8 @@ public class TierDao {
 
     //From Tier
     public Tier getTierById(int tierId) {
-        Tier ut = get(tierId).orElseThrow();
-        return ut;
+        Tier ti = get(tierId).orElseThrow();
+        return ti;
     }
     public int deleteTier(int tierId) {
         return delete(tierId);

@@ -5,6 +5,7 @@ import ch.ubs.m295.generated.v1.dto.Tier;
 import com.ubs.projekt.m295projekt.dao.TierDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -42,9 +43,9 @@ public class TierController implements TiereApi {
 
     @Override
     public ResponseEntity<Void> tiereTierIdDelete(Integer tierId) {
-        logger.info("Deleted animal with tierId: " + tierId);
-        tierDao.deleteTier(tierId);
-        return ResponseEntity.ok().build();
+            logger.info("Deleted animal with tierId: " + tierId);
+            tierDao.deleteTier(tierId);
+            return ResponseEntity.ok().build();
     }
 
     @Override
