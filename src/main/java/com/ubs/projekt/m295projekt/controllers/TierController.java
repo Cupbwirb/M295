@@ -33,12 +33,12 @@ public class TierController implements TiereApi {
 
 
 
-    /*@Override
+    @Override
     public ResponseEntity<Void> tierePost(Tier tier) {
         logger.info("Added this animal: " + tier);
         tierDao.insertTier(tier);
         return ResponseEntity.ok().build();
-    }*/
+    }
 
     @Override
     public ResponseEntity<Void> tiereTierIdDelete(Integer tierId) {
