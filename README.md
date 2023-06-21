@@ -87,7 +87,7 @@ It can be reached by `http://localhost:8080`
 #### /art
 Here you can see all animal types which are allowed in the animals shelter.
 ###### Security
-! This endpoint is secured. To access this endpoint please use "Basic Auth".
+This `/art` endpoint is secured. To access this endpoint please use "Basic Auth".
 - `Username: user`
 - `Password: 12345`
 
