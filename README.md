@@ -90,4 +90,24 @@ This `/art` endpoint is secured. To access this endpoint please use "Basic Auth"
 - `Username: user`
 - `Password: 12345`
 
+# M294 Documentation
+The "Index.html" you will find in: 
+`src/main/resources/static/M294/Index.html`
+<br>
+Additional information you should know:
+### `Update Animal`
+Giving an Id is required to update an animal. You can also only update
+1 or 2 Fields. It is not required to update all Fields, they can just stay empty.
+### `Get Animal`
+There is a `Get` Button which lists you every animal in the Database. Whenever you Post, Put  or Delete,
+the List will automatically update.
+
+### `Get Art`
+The "Art" endpoint is secured. You have to log in first. 
+- `Username: user`
+- `Password: 12345`
+<br>
+After you have successfully logged in, all the animal types will be displayed.
+You can logout and login again whenever you want.
+
 

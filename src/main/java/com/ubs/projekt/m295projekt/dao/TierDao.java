@@ -27,9 +27,40 @@ public class TierDao {
         return delete(tierId);
     }
     public int updateTier(int tierId, Tier tier) {
-        tier.setTierId(tierId);
-        return update(tier);
+        String sql = "SELECT * FROM Tier WHERE tierId = :tierId";
+        SqlParameterSource paramSource = new MapSqlParameterSource()
+                .addValue("tierId", tierId);
+
+        List<Tier> tierList = jdbc.query(sql, paramSource, (ResultSet rs, int rowNum) -> {
+            Tier existingTier = new Tier();
+            existingTier.setTierId(rs.getInt("tierId"));
+            existingTier.setTierName(rs.getString("tierName"));
+            existingTier.setTierAlter(rs.getInt("tierAlter"));
+            existingTier.setArtId(rs.getInt("artId"));
+            return existingTier;
+        });
+
+        if (tierList.isEmpty()) {
+            return 0; // Tier with given ID not found
+        }
+
+        Tier existingTier = tierList.get(0);
+
+        if (tier.getTierName() != null && !tier.getTierName().isEmpty()) {
+            existingTier.setTierName(tier.getTierName());
+        }
+
+        if (tier.getTierAlter() != null) {
+            existingTier.setTierAlter(tier.getTierAlter());
+        }
+
+        if (tier.getArtId() != null) {
+            existingTier.setArtId(tier.getArtId());
+        }
+
+        return update(existingTier);
     }
+
     public List<Tier> getAllTiere() {
         List<Tier> tiere = getAll();
         List<Tier> tierr = new ArrayList<>();
