@@ -1,0 +1,63 @@
+.buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#buttonlist{
+    margin-top: 30px;
+}
+button{
+    width: 50%;
+}
+#logout{
+    margin-top: 20px;
+}
+
+#theTop{
+    padding-bottom: 10%;
+    padding-top: 10%;
+    text-align: center;
+    background: rgba(250, 235, 215, 0.5) url(topanimal.png) no-repeat center center;
+    background-size: cover;
+}
+#getterForm{
+    text-align: center;
+}
+#artResult{
+    text-align: center;
+}
+#sub{
+    margin-bottom: 20px;
+}
+#texto{
+    text-align: center;
+    margin-bottom: 30px;
+    color: red;
+}
+
+h1 {
+    background-color: whitesmoke;
+    margin-right: 35%;
+    margin-left: 35%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    opacity: 0.8;
+}
+h2 {
+    padding-top: 20px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+.back{
+    background-color: #fff4dc;
+    padding: 20px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.listTitel{
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}

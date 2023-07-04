@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Bootstrap Example</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="FormularCss.css">
+        <script src="FormularScript.js"></script>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    </head>
+    <body>
+        <div id="theTop">
+            <h1>Tierheim Verwaltung</h1>
+        </div>
+        <div class="container">
+            <div class="back">
+                <!-- Create Animal -->
+                <h2>Add Animal</h2>
+                <form id="animalForm">
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="animalName">Name:</label>
+                            <input type="text" class="form-control" id="animalName" name="animalName" required><br><br>
+                        </div>
+                        <div class="col-3">
+                            <label for="animalAge">Age:</label>
+                            <input type="number" class="form-control" id="animalAge" name="animalAge" required><br><br>
+                        </div>
+                        <div class="col-3">
+                            <label for="animalType">Animal Type:</label>
+                            <input type="number" class="form-control" id="animalType" name="animalType" required><br><br>
+                        </div>
+                    </div>
+                    <div class="form-row buttons">
+                        <button type="submit" class="btn btn-secondary">Add</button>
+                    </div>
+                </form>
+            </div>
+            <div class="back">
+                <!-- Update Animal -->
+                <h2>Update Animal</h2>
+                <form id="updateForm">
+                    <div class="form-row">
+                        <div class="col-3">
+                            <label for="animalId">Animal ID:</label>
+                            <input type="number" class="form-control" id="animalId" name="animalId" required><br><br>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="updatedAnimalName">Update Name:</label>
+                            <input type="text" class="form-control" id="updatedAnimalName" name="updatedAnimalName"><br><br>
+                        </div>
+                        <div class="col-3">
+                            <label for="updatedAnimalAge">Update Age:</label>
+                            <input type="number" class="form-control" id="updatedAnimalAge" name="updatedAnimalAge"><br><br>
+                        </div>
+                        <div class="col-3">
+                            <label for="updatedAnimalType">Update Animal Type:</label>
+                            <input type="number" class="form-control" id="updatedAnimalType" name="updatedAnimalType"><br><br>
+                        </div>
+                    </div>
+                    <div class="form-row buttons">
+                        <button type="submit" class="btn btn-secondary">Update</button>
+                    </div>
+                </form>
+            </div>
+            <div class="back">
+                <!-- Delete Animal -->
+                <h2>Delete Animal</h2>
+                <form id="deleteForm">
+                    <div class="form-row justify-content-center">
+                        <div class="col-3">
+                            <label for="deleteAnimalId">Animal ID:</label>
+                            <input type="number" class="form-control" id="deleteAnimalId" name="deleteAnimalId" required><br><br>
+                        </div>
+                    </div>
+                    <div class="form-row buttons">
+                        <button type="submit" class="btn btn-secondary">Delete</button>
+                    </div>
+                </form>
+            </div>
+            <div class="back">
+                <!-- Get Animal -->
+                <h2 id="getterTitle">Get Animal</h2>
+                <form id="getterForm" style="display: none;">
+                    <div class="form-row">
+                        <div class="col listTitel">
+                            Animal ID:
+                        </div>
+                        <div class="col listTitel">
+                            Name:
+                        </div>
+                        <div class="col listTitel">
+                            Age:
+                        </div>
+                        <div class="col listTitel">
+                            Type ID:
+                        </div>
+                    </div>
+                    <div class="form-row buttons" id="buttonlist"></div>
+                </form>
+                <div class="row buttons">
+                    <button type="submit" class="btn btn-secondary" id="get-button">Get</button>
+                </div>
+            </div>
+            <!-- Get Art -->
+            <div class="back">
+                <h2>Get Art</h2>
+                <form id="artForm">
+                    <div class="form-row" id="artTable">
+                        <div class="col listTitel" id="1" style="display: none;">Type ID:</div>
+                        <div class="col listTitel" id="2" style="display: none;">Animal Types:</div>
+                    </div>
+                    <div class="form-group" id="securityName">
+                        <label for="username">Username:</label>
+                        <input type="text" class="form-control" id="username" placeholder="Enter username" required>
+                    </div>
+                    <div class="form-group" id="securityPsw">
+                        <label for="password">Password:</label>
+                        <input type="password" class="form-control" id="password" placeholder="Enter password" required>
+                    </div>
+                    <div class="row">
+                        <div class="col" id="texto">
+
+                        </div>
+                    </div>
+                    <div class="row buttons">
+                        <button type="submit" class="btn btn-secondary" id="sub">Submit</button>
+                    </div>
+                    <div class="row" id="artResult"></div>
+                    <div class="row buttons">
+                        <button type="submit" class="btn btn-secondary" id="logout" style="display: none;">Logout</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script src="FormularScript.js"></script>
+    </body>
+</html>
